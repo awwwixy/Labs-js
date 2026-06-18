@@ -3,6 +3,7 @@ export function memoize(fn, options = {}) {
     const ttl = options.ttl || Infinity;
     const cache = new Map();
     const strategy = options.strategy || "lru";
+    const evict = options.evict || null;
     const frequency = new Map();
     const timestamps = new Map();
 
