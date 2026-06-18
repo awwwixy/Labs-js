@@ -36,7 +36,12 @@ return function (...args) {
    timestamps.set(key, Date.now());
 
    if (cache.size > maxSize) {
-    if (strategy === "lfu"){
+    if (evict) {
+        const keyToEvict = evict ({ cache, frequency, timestamps, maxSize });
+        cache.delete(keyToEvict);
+        frequency.delete(keyToEvict);
+        timestamps.delete(keyToEvict);
+    } else if (strategy === "lfu") {
         let minKey = null
         let minCount = Infinity;
         for (const [k, count] of frequency) {
