@@ -45,3 +45,21 @@ cube(2);
 cube(3);
 cube(1);
 cube(2);
+
+console.log("-- Тест TTL --");
+
+const getTime = memoize(
+    (label) => {
+        console.log("обчислюю для", label);
+        return Date.now();
+    }
+    { ttl: 1000 }
+);
+
+getTime("a");
+getTime("a");
+
+setTimeout(() => {
+    getTime("a");
+    console.log("(вище мало обчислитись заново - TTL спрацював)");
+}, 1500);
