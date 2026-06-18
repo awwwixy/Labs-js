@@ -41,7 +41,7 @@ const cube = memoize(
 cube(1);
 cube(1);
 cube(1);
-cube(2);
+cube(2);    
 cube(3);
 cube(1);
 cube(2);
