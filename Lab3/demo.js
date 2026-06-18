@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { memoize } from "./memoize.js";
 
 function slowAdd(a, b) {
@@ -63,3 +64,22 @@ setTimeout(() => {
     getTime("a");
     console.log("TTL спрацював");
 }, 1500);
+
+console.log("-- Тест CUSTOM --");
+
+const compute = memoize(
+    (x) => {
+        console.log("обчислю", x);
+        return x * 10;
+    },
+    {
+        maxSize: 2,
+        evict: ({ cache }) => {
+            return [...cache.keys()][0]
+        },
+    }
+);
+
+compute(1);
+compute(2);
+compute(3);
