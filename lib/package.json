@@ -1,0 +1,9 @@
+{
+    "name": "labs-lib",
+    "version": "1.0.0",
+    "description": "Library with generators and iterators",
+    "type": "module",
+    "main": "generators.js",
+    "author": "Viktoriia Slyviuk",
+    "license": "MIT"
+}
