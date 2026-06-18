@@ -27,3 +27,21 @@ square(1);
 square(3); 
 square(2); 
 square(1); 
+
+console.log("-- Тест LFU --");
+
+const cube = memoize(
+    (x) => {
+        console.log("рахую куб", x);
+        return x * x * x;
+    },
+    {maxSize: 2, strategy: "lfu"}
+);
+
+cube(1);
+cube(1);
+cube(1);
+cube(2);
+cube(3);
+cube(1);
+cube(2);
