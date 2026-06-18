@@ -52,7 +52,7 @@ const getTime = memoize(
     (label) => {
         console.log("обчислюю для", label);
         return Date.now();
-    }
+    },
     { ttl: 1000 }
 );
 
@@ -61,5 +61,5 @@ getTime("a");
 
 setTimeout(() => {
     getTime("a");
-    console.log("(вище мало обчислитись заново - TTL спрацював)");
+    console.log("TTL спрацював");
 }, 1500);
