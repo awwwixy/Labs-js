@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { memoize } from "./memoize.js";
 
 function slowAdd(a, b) {
