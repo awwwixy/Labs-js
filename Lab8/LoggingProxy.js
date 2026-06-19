@@ -7,8 +7,10 @@ export class LoggingProxy {
     console.log(`[LoggingProxy] запит до ${req.url}`);
     const start = Date.now();
 
+    const response = await this.client.request(req);
+
     const time = Date.now() - start;
-    console.log(`[LoggingProxy] відповідь ${response.status} за ${time}`);
+    console.log(`[LoggingProxy] відповідь ${response.status} за ${time}мс`);
 
     return response;
   }
