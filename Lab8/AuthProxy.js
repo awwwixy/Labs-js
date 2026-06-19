@@ -20,7 +20,7 @@ export class AuthProxy {
 
   async request(req) {
     const authHeader = this.getAuthHeader();
-    req = Object.assign({}, req.headers, authHeader);
+    req.headers = Object.assign({}, req.headers, authHeader);
 
     return this.client.request(req);
   }
