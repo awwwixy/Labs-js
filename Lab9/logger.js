@@ -1,6 +1,6 @@
 export function log(fn, level = "INFO") {
   return async function (...args) {
-    const timestemp = new Date().tiISOString();
+    const timestemp = new Date().toISOString();
 
     try {
       const result = await fn(...args);
