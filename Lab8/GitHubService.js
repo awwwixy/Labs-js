@@ -13,6 +13,7 @@ export class GitHubService {
 
   async getRepos(username) {
     return this.client.request({
+      method: "GET",
       url: `https://api.github.com/users/${username}/repos`,
       headers: {},
     });
