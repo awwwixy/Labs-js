@@ -10,10 +10,10 @@ export class AuthProxy {
       return { "X-API-Key": this.token };
     }
     if (this.type === "jwt") {
-      return { Authorization: "Bearer" + this.token };
+      return { Authorization: "Bearer " + this.token };
     }
     if (this.type === "oauth") {
-      return { Authoruzation: "OAuth" + this.token };
+      return { Authorization: "OAuth " + this.token };
     }
     return {};
   }
