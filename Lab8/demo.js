@@ -8,6 +8,8 @@ async function main() {
   const logged = new LoggingProxy(base);
   const authed = new AuthProxy(logged, "jwt", "me-secret-token");
 
+  const github = new GitHubService(authed);
+
   console.log("=== Запит getUser ===");
   const user = await github.getUser("octocat");
   console.log("Відповідь:", user.body);
